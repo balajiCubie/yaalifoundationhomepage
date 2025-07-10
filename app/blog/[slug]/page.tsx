@@ -48,13 +48,14 @@ const estimateReadingTime = (text: string) => {
   return readingTimeMinutes;
 };
 
-interface BlogPostPageProps {
+interface PageProps {
   params: {
     slug: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
-const BlogPostPage = ({ params }: BlogPostPageProps) => {
+const BlogPostPage = ({ params }: PageProps) => {
   const { slug } = params;
   const [contentHtml, setContentHtml] = useState('');
   const [readingTime, setReadingTime] = useState(0);
