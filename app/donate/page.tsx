@@ -28,9 +28,6 @@ export default function DonatePage() {
     setImpactMessage(message);
   }, [amount]);
 
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(Number(e.target.value));
-  };
 
   const handleDonationSubmit = (e: React.FormEvent) => {
     e.preventDefault();

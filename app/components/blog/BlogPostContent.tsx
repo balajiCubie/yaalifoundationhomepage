@@ -1,11 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { remark } from 'remark';
-import html from 'remark-html';
-import { estimateReadingTime } from '@/lib/utils/readingTime';
 import { Post, Author } from '@/lib/data/blogPosts';
 
 interface BlogPostContentProps {

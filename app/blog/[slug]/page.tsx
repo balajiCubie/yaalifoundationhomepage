@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { estimateReadingTime } from '@/lib/utils/readingTime';
@@ -9,7 +8,13 @@ import { authors, blogPosts } from '@/lib/data/blogPosts';
 import BlogPostContent from '@/app/components/blog/BlogPostContent';
 import BlogPostNotFound from '@/app/components/blog/BlogPostNotFound';
 
-const BlogPostPage = ({ params }: { params: any }) => {
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const BlogPostPage = ({ params }: BlogPostPageProps) => {
   const { slug } = params;
   const [contentHtml, setContentHtml] = useState('');
   const [readingTime, setReadingTime] = useState(0);

@@ -1,4 +1,3 @@
-import { stripHtml } from 'string-strip-html';
 
 export interface Author {
   name: string;
