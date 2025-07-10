@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from 'react';
@@ -31,7 +30,6 @@ const authors: Authors = {
   }
 };
 
-
 interface Post {
   slug: string;
   title: string;
@@ -50,7 +48,13 @@ const estimateReadingTime = (text: string) => {
   return readingTimeMinutes;
 };
 
-const BlogPostPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
+
+const BlogPostPage = ({ params }: BlogPostPageProps) => {
   const { slug } = params;
   const [contentHtml, setContentHtml] = useState('');
   const [readingTime, setReadingTime] = useState(0);
@@ -85,7 +89,7 @@ This image represents a typical water project we undertake.
 ### Block Embed Example (Video - Placeholder)
 You can imagine embedding a video here, for example from YouTube:
 \`\`\`html
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-in; gyroscope; picture-in-picture" allowfullscreen></iframe>
 \`\`\`
 *Note: This is a placeholder for a video embed. In a real MDX setup, you might have custom components for this.*
       `
