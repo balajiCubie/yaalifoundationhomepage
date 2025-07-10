@@ -7,8 +7,16 @@ export default function Home() {
       {/* Hero Section */}
 
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-20 flex-grow flex items-center justify-center">
-        <div className="container mx-auto px-4">
+      <section className="relative bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-20 flex-grow flex items-center justify-center overflow-hidden">
+        <Image
+          src="/hero.jpg"
+          alt="Hero Background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className="absolute inset-0 z-0 opacity-30"
+        />
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
             Empowering Communities, <br className="hidden md:inline"/>Building a Sustainable Future
           </h2>
@@ -53,7 +61,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">About Us</h2>
           <div className="flex flex-col md:flex-row items-center md:space-x-8">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <Image src="/yaali-about.jpg" alt="About Yaali Foundation" width={700} height={400} className="rounded-lg shadow-lg"/>
+              <Image src="/hero.jpg" alt="About Yaali Foundation" width={700} height={400} className="rounded-lg shadow-lg"/>
             </div>
             <div className="md:w-1/2 text-lg text-gray-700 leading-relaxed">
               <p className="mb-4">
@@ -124,7 +132,7 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-white mb-12">Our Success Stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-              <Image src="/success-story-1.jpg" alt="Success Story 1" width={700} height={400} className="w-full h-64 object-cover"/>
+              <Image src="/hero.jpg" alt="Success Story 1" width={700} height={400} className="w-full h-64 object-cover"/>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-3">Bringing Clean Water to Remote Villages</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -134,7 +142,7 @@ export default function Home() {
               </div>
             </div>
             <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-              <Image src="/success-story-2.jpg" alt="Success Story 2" width={700} height={400} className="w-full h-64 object-cover"/>
+              <Image src="/hero.jpg" alt="Success Story 2" width={700} height={400} className="w-full h-64 object-cover"/>
               <div className="p-6">
                 <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-3">Empowering Women Through Education</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">

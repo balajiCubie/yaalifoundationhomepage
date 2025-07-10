@@ -9,7 +9,7 @@ export default function BlogPage() {
       summary: "Access to clean water is fundamental for health, education, and economic stability. Learn about our initiatives.",
       date: "July 1, 2025",
       category: "Water",
-      image: "/blog-water.jpg" // Placeholder image
+      image: "/hero.jpg"
     },
     {
       id: 2,
@@ -17,7 +17,7 @@ export default function BlogPage() {
       summary: "Discover how planting trees helps combat climate change and supports biodiversity.",
       date: "June 20, 2025",
       category: "Environment",
-      image: "/blog-forest.jpg" // Placeholder image
+      image: "/hero.jpg"
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ export default function BlogPage() {
       summary: "Our education hubs are transforming lives by providing essential skills and knowledge.",
       date: "June 10, 2025",
       category: "Education",
-      image: "/blog-education.jpg" // Placeholder image
+      image: "/hero.jpg"
     }
   ];
 
