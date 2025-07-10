@@ -1,26 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import "tailwindcss";
+
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Light mode palette */
+  --card-background-light: #ffffff;
+  --card-border-light: #e5e7eb; /* gray-200 */
+  --text-primary-light: #1f2937; /* gray-800 */
+  --text-secondary-light: #6b7280; /* gray-500 */
+  --accent-color-light: #2563eb; /* blue-600 */
+  --accent-hover-light: #1d4ed8; /* blue-700 */
+  --tag-background-light: #bfdbfe; /* blue-200 */
+  --tag-text-light: #1e40af; /* blue-800 */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Deep neutral background */
+    --foreground: #ededed; /* Light foreground */
+
+    /* Dark mode palette */
+    --card-background-dark: #18181b; /* zinc-900 - slightly lighter than background for contrast */
+    --card-border-dark: #27272a; /* zinc-800 */
+    --text-primary-dark: #fafafa; /* gray-50 */
+    --text-secondary-dark: #a1a1aa; /* zinc-400 */
+    --accent-color-dark: #60a5fa; /* blue-400 */
+    --accent-hover-dark: #3b82f6; /* blue-500 */
+    --tag-background-dark: #1e3a8a; /* blue-900 */
+    --tag-text-dark: #93c5fd; /* blue-300 */
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif; /* Use Inter as the primary font */
+}
+
+/* Add global styles for transitions and focus states */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+*:focus {
+  outline: 2px solid var(--accent-color-light); /* Visible focus indicator */
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  *:focus {
+    outline-color: var(--accent-color-dark);
+  }
 }

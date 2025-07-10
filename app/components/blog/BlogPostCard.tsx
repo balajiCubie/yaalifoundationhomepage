@@ -1,41 +1,33 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Post, Author } from '@/lib/data/blogPosts'; // Adjust path as necessary
 
-interface BlogPostCardProps {
-  post: Post;
-  author: Author;
+interface BlogPostMetadata {
+  slug: string;
+  title: string;
+  date: string;
+  author: string;
+  tags: string[];
 }
 
-const BlogPostCard: React.FC<BlogPostCardProps> = ({ post, author }) => {
+interface BlogPostCardProps {
+  post: BlogPostMetadata;
+}
+
+const BlogPostCard: React.FC<BlogPostCardProps> = ({ post }) => {
   return (
-    <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-      {post.heroImage && (
-        <div className="relative w-full h-48 overflow-hidden">
-          <Image src={post.heroImage} alt={post.title} layout="fill" objectFit="cover" />
+    <div className="bg-[var(--card-background-light)] dark:bg-[var(--card-background-dark)] rounded-2xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-[1.02] hover:shadow-xl border border-[var(--card-border-light)] dark:border-[var(--card-border-dark)]">
+      <div className="p-8 flex flex-col h-full"> {/* Increased padding */}
+        <h3 className="text-2xl font-bold text-[var(--text-primary-light)] dark:text-[var(--text-primary-dark)] mb-3 leading-tight">{post.title}</h3> {/* Adjusted margin */}
+        <p className="text-sm text-[var(--text-secondary-light)] dark:text-[var(--text-secondary-dark)] mb-6 flex-grow">{post.date} by {post.author}</p> {/* Adjusted margin */}
+        <div className="mt-auto flex flex-wrap gap-2 mb-6"> {/* Adjusted margin */}
+          {post.tags.map((tag) => (
+            <span key={tag} className="inline-block bg-[var(--tag-background-light)] dark:bg-[var(--tag-background-dark)] text-[var(--tag-text-light)] dark:text-[var(--tag-text-dark)] text-xs font-semibold px-3 py-1 rounded-full">
+              {tag}
+            </span>
+          ))}
         </div>
-      )}
-      <div className="p-6">
-        <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-blue-200 dark:text-blue-900 mb-2">
-          {post.category}
-        </span>
-        <h3 className="text-2xl font-semibold text-gray-800 dark:text-white mb-3">{post.title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">{post.summary}</p>
-        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{post.date}</p>
-        {author && (
-          <div className="flex items-center mt-4">
-            <Image
-              src={author.avatar}
-              alt={author.name}
-              width={40}
-              height={40}
-              className="rounded-full mr-3"
-            />
-            <span className="text-sm text-gray-700 dark:text-gray-300">By {author.name}</span>
-          </div>
-        )}
-        <Link href={`/blog/${post.slug}`} className="inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition duration-300 mt-4">
+        <Link href={`/blog/${post.slug}`} className="inline-block mt-auto text-center text-[var(--accent-color-light)] dark:text-[var(--accent-color-dark)] border border-[var(--accent-color-light)] dark:border-[var(--accent-color-dark)] px-8 py-3 rounded-full text-sm font-semibold hover:bg-[var(--accent-color-light)] hover:text-white dark:hover:bg-[var(--accent-color-dark)] dark:hover:text-gray-900 transition duration-300"> {/* Updated button style */}
           Read More
         </Link>
       </div>
