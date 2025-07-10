@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link'; // Import Link for internal navigation
 import { remark } from 'remark';
 import html from 'remark-html';
 import { stripHtml } from 'string-strip-html'; // To strip HTML for word count
@@ -30,11 +31,6 @@ const authors: Authors = {
   }
 };
 
-interface BlogPostPageProps {
-  params: {
-    slug: string;
-  };
-}
 
 interface Post {
   slug: string;
@@ -54,7 +50,7 @@ const estimateReadingTime = (text: string) => {
   return readingTimeMinutes;
 };
 
-const BlogPostPage: React.FC<BlogPostPageProps> = ({ params }) => {
+const BlogPostPage: React.FC<{ params: { slug: string } }> = ({ params }) => {
   const { slug } = params;
   const [contentHtml, setContentHtml] = useState('');
   const [readingTime, setReadingTime] = useState(0);
@@ -169,7 +165,7 @@ Our key educational areas include:
       <div className="container mx-auto px-4 py-8 text-center">
         <h1 className="text-4xl font-bold mb-4">Blog Post Not Found</h1>
         <p className="text-gray-600 mb-6">The post you are looking for does not exist.</p>
-        <a href="/blog" className="text-blue-500 hover:underline">&larr; Back to Blog Posts</a>
+        <Link href="/blog" className="text-blue-500 hover:underline">&larr; Back to Blog Posts</Link>
       </div>
     );
   }
@@ -222,7 +218,7 @@ Our key educational areas include:
         )}
         <div className="prose lg:prose-xl" dangerouslySetInnerHTML={{ __html: contentHtml }} />
         <div className="mt-8">
-          <a href="/blog" className="text-blue-500 hover:underline">&larr; Back to Blog Posts</a>
+          <Link href="/blog" className="text-blue-500 hover:underline">&larr; Back to Blog Posts</Link>
         </div>
       </div>
     </div>
