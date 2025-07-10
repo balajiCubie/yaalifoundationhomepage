@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ProjectsPage() {
   const projects = [
@@ -48,7 +49,7 @@ export default function ProjectsPage() {
             {projects.map(project => (
               <div key={project.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
                 {project.image && (
-                  <img src={project.image} alt={project.name} className="w-full h-48 object-cover"/>
+                  <Image src={project.image} alt={project.name} width={700} height={400} className="w-full h-48 object-cover"/>
                 )}
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold text-gray-800 mb-3">{project.name}</h3>
